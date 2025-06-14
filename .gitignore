@@ -1,0 +1,39 @@
+
+
+#ignore the colcon build artifacts
+build/
+install/
+log/
+colcon_install_layout.*
+
+
+#ignore the Python cache crap
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+
+#CMake stuff
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+
+#VS code stuff
+.vscode/
+.idea/
+
+#Ros2 launch stuff
+*.log
+*.db
+*.sqlite3
+
+
+#Misscelaneous
+*.swp
+*.bak
+*.tmp
+*.orig
+.DS_Store
