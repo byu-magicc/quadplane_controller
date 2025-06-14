@@ -2,14 +2,13 @@ import rclpy
 from rclpy.node import Node
 #imports the VehicheCommand, which we publish
 #and we import the VehicleCommandAck, which we subscribe to
-from px4_msgs.msg import OffboardControlMode, VehicleCommand, VehicleCommandAck
+from px4_msgs.msg import VehicleCommand, VehicleCommandAck
 from time import time
 
 #defines the periods for the timer
 arm_timer_period = 1.0
 
-#defines the offboard timer period
-offboard_timer_period = 0.1
+
 
 #creates the PX4 commanded state node
 class ServoCommander(Node):
@@ -26,14 +25,6 @@ class ServoCommander(Node):
             qos_profile=10
         )
 
-        #creates the publisher for the offboard mode
-        #this one needs to be published continuously, I believe
-        self.offboard_mode_pub =self.create_publisher(
-            msg_type=OffboardControlMode,
-            topic='fmu/in/offboard_control_mode',
-            qos_profile=10
-        )
-
         #creates the subscriber to read in the acknowledge
         #bit in from the vehicle
         self.ack_subscription = self.create_subscription(
@@ -46,11 +37,6 @@ class ServoCommander(Node):
         #creates the timer to send the arm commanded
         self.arm_timer = self.create_timer(timer_period_sec=arm_timer_period,
                                            callback=self.send_arm_command)
-
-        #creates the timer to send the offboard control mode
-        self.offboard_control_timer = self.create_timer(timer_period_sec=offboard_timer_period,
-                                                        callback=self.offboard_control_callback)
-
         #variable for whether the command has been sent
         self.command_sent = False
 

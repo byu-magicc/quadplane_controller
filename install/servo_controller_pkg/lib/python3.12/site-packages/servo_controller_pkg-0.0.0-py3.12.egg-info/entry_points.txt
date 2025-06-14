@@ -1,0 +1,2 @@
+[console_scripts]
+servo_control = servo_controller_pkg.servo_commander:main

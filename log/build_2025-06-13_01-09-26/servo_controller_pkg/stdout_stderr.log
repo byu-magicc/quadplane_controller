@@ -1,0 +1,22 @@
+running egg_info
+writing ../../build/servo_controller_pkg/servo_controller_pkg.egg-info/PKG-INFO
+writing dependency_links to ../../build/servo_controller_pkg/servo_controller_pkg.egg-info/dependency_links.txt
+writing entry points to ../../build/servo_controller_pkg/servo_controller_pkg.egg-info/entry_points.txt
+writing requirements to ../../build/servo_controller_pkg/servo_controller_pkg.egg-info/requires.txt
+writing top-level names to ../../build/servo_controller_pkg/servo_controller_pkg.egg-info/top_level.txt
+reading manifest file '../../build/servo_controller_pkg/servo_controller_pkg.egg-info/SOURCES.txt'
+writing manifest file '../../build/servo_controller_pkg/servo_controller_pkg.egg-info/SOURCES.txt'
+running build
+running build_py
+copying servo_controller_pkg/servo_commander.py -> /home/quadplane/quadplane_ctrl_ws/build/servo_controller_pkg/build/lib/servo_controller_pkg
+running install
+running install_lib
+copying /home/quadplane/quadplane_ctrl_ws/build/servo_controller_pkg/build/lib/servo_controller_pkg/servo_commander.py -> /home/quadplane/quadplane_ctrl_ws/install/servo_controller_pkg/lib/python3.12/site-packages/servo_controller_pkg
+byte-compiling /home/quadplane/quadplane_ctrl_ws/install/servo_controller_pkg/lib/python3.12/site-packages/servo_controller_pkg/servo_commander.py to servo_commander.cpython-312.pyc
+running install_data
+running install_egg_info
+removing '/home/quadplane/quadplane_ctrl_ws/install/servo_controller_pkg/lib/python3.12/site-packages/servo_controller_pkg-0.0.0-py3.12.egg-info' (and everything under it)
+Copying ../../build/servo_controller_pkg/servo_controller_pkg.egg-info to /home/quadplane/quadplane_ctrl_ws/install/servo_controller_pkg/lib/python3.12/site-packages/servo_controller_pkg-0.0.0-py3.12.egg-info
+running install_scripts
+Installing servo_control script to /home/quadplane/quadplane_ctrl_ws/install/servo_controller_pkg/lib/servo_controller_pkg
+writing list of installed files to '/home/quadplane/quadplane_ctrl_ws/build/servo_controller_pkg/install.log'

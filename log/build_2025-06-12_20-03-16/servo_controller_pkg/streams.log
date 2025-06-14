@@ -1,0 +1,37 @@
+[1.405s] Invoking command in '/home/quadplane/quadplane_ctrl_ws/src/servo_controller_pkg': PYTHONPATH=/home/quadplane/quadplane_ctrl_ws/build/servo_controller_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/quadplane/quadplane_ctrl_ws/install/servo_controller_pkg/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(venv) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/servo_controller_pkg build --build-base /home/quadplane/quadplane_ctrl_ws/build/servo_controller_pkg/build install --record /home/quadplane/quadplane_ctrl_ws/build/servo_controller_pkg/install.log --single-version-externally-managed install_data
+[1.763s] running egg_info
+[1.763s] creating ../../build/servo_controller_pkg/servo_controller_pkg.egg-info
+[1.788s] writing ../../build/servo_controller_pkg/servo_controller_pkg.egg-info/PKG-INFO
+[1.788s] writing dependency_links to ../../build/servo_controller_pkg/servo_controller_pkg.egg-info/dependency_links.txt
+[1.788s] writing entry points to ../../build/servo_controller_pkg/servo_controller_pkg.egg-info/entry_points.txt
+[1.789s] writing requirements to ../../build/servo_controller_pkg/servo_controller_pkg.egg-info/requires.txt
+[1.789s] writing top-level names to ../../build/servo_controller_pkg/servo_controller_pkg.egg-info/top_level.txt
+[1.789s] writing manifest file '../../build/servo_controller_pkg/servo_controller_pkg.egg-info/SOURCES.txt'
+[1.841s] reading manifest file '../../build/servo_controller_pkg/servo_controller_pkg.egg-info/SOURCES.txt'
+[1.842s] writing manifest file '../../build/servo_controller_pkg/servo_controller_pkg.egg-info/SOURCES.txt'
+[1.842s] running build
+[1.842s] running build_py
+[1.842s] creating /home/quadplane/quadplane_ctrl_ws/build/servo_controller_pkg/build
+[1.842s] creating /home/quadplane/quadplane_ctrl_ws/build/servo_controller_pkg/build/lib
+[1.842s] creating /home/quadplane/quadplane_ctrl_ws/build/servo_controller_pkg/build/lib/servo_controller_pkg
+[1.842s] copying servo_controller_pkg/servo_commander.py -> /home/quadplane/quadplane_ctrl_ws/build/servo_controller_pkg/build/lib/servo_controller_pkg
+[1.842s] copying servo_controller_pkg/__init__.py -> /home/quadplane/quadplane_ctrl_ws/build/servo_controller_pkg/build/lib/servo_controller_pkg
+[1.843s] running install
+[1.852s] running install_lib
+[1.878s] creating /home/quadplane/quadplane_ctrl_ws/install/servo_controller_pkg/lib/python3.12/site-packages/servo_controller_pkg
+[1.878s] copying /home/quadplane/quadplane_ctrl_ws/build/servo_controller_pkg/build/lib/servo_controller_pkg/servo_commander.py -> /home/quadplane/quadplane_ctrl_ws/install/servo_controller_pkg/lib/python3.12/site-packages/servo_controller_pkg
+[1.878s] copying /home/quadplane/quadplane_ctrl_ws/build/servo_controller_pkg/build/lib/servo_controller_pkg/__init__.py -> /home/quadplane/quadplane_ctrl_ws/install/servo_controller_pkg/lib/python3.12/site-packages/servo_controller_pkg
+[1.879s] byte-compiling /home/quadplane/quadplane_ctrl_ws/install/servo_controller_pkg/lib/python3.12/site-packages/servo_controller_pkg/servo_commander.py to servo_commander.cpython-312.pyc
+[1.880s] byte-compiling /home/quadplane/quadplane_ctrl_ws/install/servo_controller_pkg/lib/python3.12/site-packages/servo_controller_pkg/__init__.py to __init__.cpython-312.pyc
+[1.881s] running install_data
+[1.881s] creating /home/quadplane/quadplane_ctrl_ws/install/servo_controller_pkg/share/ament_index
+[1.881s] creating /home/quadplane/quadplane_ctrl_ws/install/servo_controller_pkg/share/ament_index/resource_index
+[1.881s] creating /home/quadplane/quadplane_ctrl_ws/install/servo_controller_pkg/share/ament_index/resource_index/packages
+[1.881s] copying resource/servo_controller_pkg -> /home/quadplane/quadplane_ctrl_ws/install/servo_controller_pkg/share/ament_index/resource_index/packages
+[1.881s] copying package.xml -> /home/quadplane/quadplane_ctrl_ws/install/servo_controller_pkg/share/servo_controller_pkg
+[1.881s] running install_egg_info
+[1.909s] Copying ../../build/servo_controller_pkg/servo_controller_pkg.egg-info to /home/quadplane/quadplane_ctrl_ws/install/servo_controller_pkg/lib/python3.12/site-packages/servo_controller_pkg-0.0.0-py3.12.egg-info
+[1.910s] running install_scripts
+[2.090s] Installing servo_control script to /home/quadplane/quadplane_ctrl_ws/install/servo_controller_pkg/lib/servo_controller_pkg
+[2.090s] writing list of installed files to '/home/quadplane/quadplane_ctrl_ws/build/servo_controller_pkg/install.log'
+[2.167s] Invoked command in '/home/quadplane/quadplane_ctrl_ws/src/servo_controller_pkg' returned '0': PYTHONPATH=/home/quadplane/quadplane_ctrl_ws/build/servo_controller_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/quadplane/quadplane_ctrl_ws/install/servo_controller_pkg/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(venv) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/servo_controller_pkg build --build-base /home/quadplane/quadplane_ctrl_ws/build/servo_controller_pkg/build install --record /home/quadplane/quadplane_ctrl_ws/build/servo_controller_pkg/install.log --single-version-externally-managed install_data
