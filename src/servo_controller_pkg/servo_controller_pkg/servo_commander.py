@@ -3,13 +3,15 @@ from rclpy.node import Node
 #imports the VehicheCommand, which we publish
 #and we import the VehicleCommandAck, which we subscribe to
 from px4_msgs.msg import OffboardControlMode, VehicleCommand, VehicleCommandAck
-from time import time
 
 #defines the periods for the timer
 arm_timer_period = 1.0
 
+#defines the timer period for entering offboard mode initially
+offboard_init_timer_period = 0.1
+
 #defines the offboard timer period
-offboard_timer_period = 0.1
+offboard_mode_timer_period = 0.1
 
 #creates the PX4 commanded state node
 class ServoCommander(Node):
@@ -34,6 +36,12 @@ class ServoCommander(Node):
             qos_profile=10
         )
 
+        #creates the publisher for the offboard init
+        self.offboard_init_pub = self.create_publisher(
+            msg_type=VehicleCommand,
+            topic='fmu/in/OffboardControlMode'
+        )
+
         #creates the subscriber to read in the acknowledge
         #bit in from the vehicle
         self.ack_subscription = self.create_subscription(
@@ -43,23 +51,36 @@ class ServoCommander(Node):
             qos_profile=10
         )
 
+
         #creates the timer to send the arm commanded
         self.arm_timer = self.create_timer(timer_period_sec=arm_timer_period,
                                            callback=self.send_arm_command)
 
+        #creates the timer to put the board into offboard control mode
+        #NOTE, this is just to get into the offboard mode
+        self.offboard_control_init_timer = self.create_timer(timer_period_sec=offboard_init_timer_period,
+                                                             callback=self.offboard_init_callback) 
+
+
         #creates the timer to send the offboard control mode
-        self.offboard_control_timer = self.create_timer(timer_period_sec=offboard_timer_period,
-                                                        callback=self.offboard_control_callback)
+        #NOTE: not to be confused with the command to go into offboard mode,
+        #this one tells the px4 code WHAT KIND of offboard mode we will be doing,
+        #which in this case is direct servo control
+        self.offboard_control_mode_timer = self.create_timer(timer_period_sec=offboard_mode_timer_period,
+                                                             callback=self.offboard_mode_control_callback)
 
-        #variable for whether the command has been sent
-        self.command_sent = False
 
+        #variable for whether the command to arm the vehicle has been sent
+        self.arm_command_sent = False
+
+        #variable for whether the command to enter offboard mode
+        self.offboard_init_sent = False
 
     #creates the send arm command to be sent
     def send_arm_command(self):
 
         #checks if the command has been sent
-        if self.command_sent:
+        if self.arm_command_sent:
             #then we just return without doing anything
             return
 
@@ -85,7 +106,7 @@ class ServoCommander(Node):
         self.command_pub.publish(cmd)
         self.get_logger().info("ARM command sent.")
         #sets the command sent variable to true, so we don't keep sending it over and over
-        self.command_sent = True
+        self.arm_command_sent = True
 
     #creates the function to acknowledge a callback
     def ack_callback(self, msg):
@@ -108,6 +129,44 @@ class ServoCommander(Node):
         )
 
 
+    #creates the offboard control callback function
+    def offboard_mode_control_callback(self):
+
+        #creates the offboard control message
+        msg = OffboardControlMode()
+
+
+        #sets the mode to direct actuator control
+        msg.direct_actuator = True
+
+        #publishes this message
+        self.offboard_mode_pub.publish(msg)
+
+    #creates the offboard init callback function
+    #remember, this is just to get the board into offboard mode
+    def offboard_init_callback(self):
+
+        #checks whether the offboard init has been sent
+        if self.offboard_init_sent:
+            #then we just return
+            return
+        
+        #creates the message
+        msg = VehicleCommand()
+        msg.timestamp = int(self.get_clock().now().nanoseconds / 1000)
+        msg.param1 = 1.0
+        msg.param2 = 6.0 #puts px4 into the offboard mode
+        msg.command = 176 #MAV_CMD_DO_SET_MODE
+        msg.target_system = 1
+        msg.target_component = 1
+        msg.source_system = 1
+        msg.source_component = 1
+        msg.from_external = True
+
+        self.publisher
+        
+
+        
 #defines the main function to run everything
 def main(args=None):
     rclpy.init(args=args)
