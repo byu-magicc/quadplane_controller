@@ -3,7 +3,7 @@ from rclpy.node import Node
 #imports the VehicheCommand, which we publish
 #and we import the VehicleCommandAck, which we subscribe to
 from px4_msgs.msg import OffboardControlMode, VehicleCommand, VehicleCommandAck
-
+#
 #defines the periods for the timer
 arm_timer_period = 1.0
 
