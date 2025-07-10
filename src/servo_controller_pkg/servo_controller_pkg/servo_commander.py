@@ -13,6 +13,8 @@ offboard_init_timer_period = 0.1
 #defines the offboard timer period
 offboard_mode_timer_period = 0.1
 
+potato = 0
+
 #creates the PX4 commanded state node
 class ServoCommander(Node):
 
